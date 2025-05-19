@@ -11,7 +11,7 @@ This project implements a mean reversion trading strategy using cointegrated sto
 
 - Cointegration tested via Engle-Granger test (ADF)
 - Entry/exit signals generated using z-score of residuals
-- Thresholds optimized on training set
+- Thresholds optimised on training set
 - Strategy performance evaluated via Sharpe ratio, drawdown, and total return
 
 ## 📂 Folder Structure
@@ -27,7 +27,7 @@ This project implements a mean reversion trading strategy using cointegrated sto
 ## 💡 Example Result (PH/EMR)
 
 - Cointegration p-value: 0.046  
-- Optimized entry: 1.50 | exit: 0.90  
+- Optimised entry: 1.50 | exit: 0.90  
 - **Training Sharpe**: 0.61 | **Test Sharpe**: 0.75  
 - **Test Total Return**: 29.4% | **Max Drawdown**: 8.3%
 
