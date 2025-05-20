@@ -15,8 +15,8 @@ This repository contains two Jupyter notebooks implementing a **Pair Trading Bac
 
 ## Contents
 
-- `backtest_pair.ipynb` â Basic implementation of the pair trading backtester with key methods and a demonstration on a sample pair.
-- `batch_backtester.ipynb` â Enhanced version with additional features including print control, silent mode, and testing multiple pairs.
+- `backtest_pair.ipynb` Basic implementation of the pair trading backtester with key methods and a demonstration on a sample pair.
+- `batch_backtester.ipynb` Enhanced version with additional features including print control, silent mode, and testing multiple pairs.
 
 ---
 
