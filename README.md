@@ -1,80 +1,94 @@
 
 # Pair Trading Backtester
 
-This repository contains a Python class for backtesting a pair trading strategy on historical stock data. The strategy is based on statistical arbitrage principles, primarily relying on cointegration between two assets.
+This repository contains two Jupyter notebooks implementing a **Pair Trading Backtester** using Python. The notebooks demonstrate how to:
 
-## Overview
+- Download and process historical stock data with `yfinance`.
+- Test for cointegration between pairs of assets.
+- Generate trading signals based on z-score thresholds.
+- Optimise entry and exit thresholds for the strategy.
+- Calculate returns, transaction costs, and leverage dynamically using the Kelly criterion.
+- Evaluate strategy performance with Sharpe ratio, drawdown, and total return.
+- Visualise cumulative returns on training and test datasets.
 
-The `PairTradingBacktester` class performs the following:
+---
 
-- Downloads historical price data using Yahoo Finance.
-- Splits data into training and testing periods.
-- Tests for cointegration between the two assets.
-- Optimises entry and exit thresholds to maximise the Sharpe ratio.
-- Computes hedge ratios and trading signals using z-scores.
-- Incorporates transaction costs and dynamic position sizing based on the Kelly criterion.
-- Calculates returns, cumulative performance, and risk metrics.
-- Plots cumulative returns for visual assessment.
+## Contents
+
+- `backtest_pair.ipynb` â Basic implementation of the pair trading backtester with key methods and a demonstration on a sample pair.
+- `batch_backtester.ipynb` â Enhanced version with additional features including print control, silent mode, and testing multiple pairs.
+
+---
+
+## Features
+
+- **Data Handling:** Uses Yahoo Finance via `yfinance` to download historical adjusted close prices.
+- **Cointegration Testing:** Statistical test to validate the mean-reverting relationship between pairs.
+- **Dynamic Position Sizing:** Leverages the Kelly criterion for position sizing with a cap on maximum leverage.
+- **Threshold Optimisation:** Grid search for optimal entry and exit z-score thresholds to maximize Sharpe ratio.
+- **Performance Metrics:** Calculates Sharpe ratio, maximum drawdown, and total cumulative return.
+- **Plotting:** Visualisation of cumulative returns for both training and testing periods.
+
+---
 
 ## Requirements
 
-- Python 3.7 or above
-- `yfinance`
-- `pandas`
-- `numpy`
-- `matplotlib`
-- `statsmodels`
+- Python 3.7+
+- Jupyter Notebook or JupyterLab
+- Libraries:
+  - `yfinance`
+  - `pandas`
+  - `numpy`
+  - `matplotlib`
+  - `statsmodels`
 
-You can install the necessary packages using:
+You can install the dependencies using:
 
 ```bash
 pip install yfinance pandas numpy matplotlib statsmodels
 ```
 
+---
+
 ## Usage
 
-1. Import the class and create an instance with your desired parameters:
+1. Clone the repository:
 
-```python
-from pair_trading_backtester import PairTradingBacktester
-
-tickers = ["AAPL", "MSFT"]
-start_date = "2010-01-01"
-end_date = "2023-01-01"
-
-backtester = PairTradingBacktester(tickers, start_date, end_date)
+```bash
+git clone https://github.com/RoryMcTeague/mean-reversion-backtester.git
+cd mean-reversion-backtester
 ```
 
-2. Run the backtest by specifying a date to split training and testing data:
+2. Open either notebook with Jupyter:
 
-```python
-split_date = "2020-01-01"
-backtester.run(split_date)
+```bash
+jupyter notebook backtest_pair.ipynb
+# or
+jupyter notebook batch_backtester.ipynb
 ```
 
-3. Review printed output for performance metrics and view the plotted cumulative returns.
+3. Modify the parameters (tickers, dates, window sizes) and run cells to backtest your desired pairs.
 
-## Parameters
+---
 
-- `tickers`: List of two asset tickers.
-- `start_date`: Start date for historical data in `YYYY-MM-DD` format.
-- `end_date`: End date for data.
-- `window`: Rolling window size for indicator calculations (default: 20).
-- `entry_threshold`: Z-score threshold to enter a trade (auto-optimised if `None`).
-- `exit_threshold`: Z-score threshold to exit a trade (auto-optimised if `None`).
-- `cost_per_trade`: Transaction cost per unit traded (default: 0.001).
-- `max_leverage`: Maximum allowable leverage (default: 2).
-- `kelly_fraction`: Fraction of Kelly criterion to use for dynamic sizing (default: 0.5).
-- `print_results`: Whether to print performance metrics and plot results (default: True).
+## Example
 
-## Notes
+The notebooks demonstrate a sample backtest on the pair `["PH", "EMR"]` with a training/testing split date of `2023-01-01`. The backtester outputs cointegration test results, optimised thresholds, performance metrics, and plots cumulative returns.
 
-- The strategy assumes cointegration between the two selected assets. A cointegration test is performed and results are displayed.
-- Thresholds for entering and exiting trades can be optimised automatically based on training data to maximise the Sharpe ratio.
-- Transaction costs are factored into strategy returns.
-- Leverage is dynamically adjusted according to the Kelly criterion to manage risk.
-- Visualisations of cumulative returns are provided for both training and test periods.
+---
 
-## Licence
+## License
 
-This project is released under the MIT Licence.
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## Contact
+
+For questions or feedback, please open an issue or contact me at [rorymcteague@btinternet.com].
+
+---
+
+[LinkedIn](https://www.linkedin.com/in/rory-mcteague-b78637161/)
+[Github](https://github.com/RoryMcTeague)
+
