@@ -17,7 +17,6 @@ This project implements a mean reversion trading strategy using cointegrated sto
 ## Folder Structure
 
 - `results/`: Output CSVs (e.g. `sharpe_rankings.csv`) and equity curve plots
-- `notebooks/`: Exploratory or development notebooks
 
 ##  Runtime
 
